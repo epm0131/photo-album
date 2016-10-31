@@ -12,7 +12,30 @@
   $('nav')
     .find('button')
       .on('click', function previousPic(event){
-      console.log('hello!');
+        event.stopPropagation();
+
+        var currentImage = $(this).closest('li')
+        var previousImage = $(this).closest('li').prev();
+        var nextImage = $(this).closest('li').next();
+
+        if ($(this).is('.previous')) {
+          previousImage.append($ ('nav') );
+          previousImage.toggleClass('zoomed');
+          currentImage.removeClass('zoomed');
+        }
+        else {
+          nextImage.append($ ('nav') );
+          nextImage.toggleClass('zoomed');
+          currentImage.removeClass('zoomed');
+        }
+
+
+
+        
+
+
+
+
       });
 
 })();
